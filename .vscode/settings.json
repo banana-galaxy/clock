@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "sntp.h": "c",
+    "esp_netif.h": "c",
+    "cmath": "cpp"
+  }
+}
