@@ -112,10 +112,11 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
-  for (int i = 0; i < 50; i++) {
-
-    delay(500);
-  }
+  // TODO loading animation
+  // for (int i = 0; i < 50; i++) {
+    
+  //   delay(500);
+  // }
   Serial.println("");
   Serial.println("WiFi connected.");
   
@@ -126,11 +127,6 @@ void setup() {
   deltaTimerToEpoch = getTimerTime();
   prev_time = lastEpoch;
   timeClient.end();
-
-  // configTzTime(cstOffset, ntpServer);
-  // esp_sntp_config_t config = ESP_NETIF_SNTP_DEFAULT_CONFIG("pool.ntp.org");
-  // esp_netif_sntp_init(&config);
-  // printLocalTime();
 
   //disconnect WiFi as it's no longer needed
   WiFi.disconnect(true);
@@ -155,10 +151,6 @@ void setup() {
 }
 
 void loop() {
-  // getLocalTime(&timeinfo);
-  // time_t now;
-  // time(&now);
-  // localtime_r(&now, &timeinfo);
   int timer_now = getTimerTime();
   time_now = lastEpoch+(timer_now-deltaTimerToEpoch);
 
@@ -173,10 +165,4 @@ void loop() {
     clockDisplay();
     rclk();
   }
-
-  // timeClient.update();
-  // lastEpoch = timeClient.getEpochTime();
-
-  // updateDisplay(numbers[time_now/10%10], 0);
-  // updateDisplay(numbers[time_now/9%10], 1);
 }
